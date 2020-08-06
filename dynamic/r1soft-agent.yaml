@@ -19,15 +19,16 @@
       state: present          #absent     latest
     with_items:
     - serverbackup-enterprise-agent
-
-  - name: Start Agent
-    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
-    systemd: 
-      name: sbm-agent
-      state: restarted
-      enabled: true
+    notify: "AGENT_INSTALLED"
 
 
   # - name: Get Key
   #     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
   #     shell: "r1soft-setup --get-key http://backup.acirrustech.com/" 
+
+  handlers:
+  - name: "AGENT_INSTALLED"
+    systemd: 
+      name: sbm-agent
+      state: restarted
+      enabled: true
