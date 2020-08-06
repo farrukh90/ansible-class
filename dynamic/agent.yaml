@@ -37,6 +37,8 @@
     # Ticket #
     - lisa
     - samantha
+    ignore_errors: yes
+    
 
 
   - name: Add Admin Group
