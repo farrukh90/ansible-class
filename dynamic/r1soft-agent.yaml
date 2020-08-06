@@ -1,0 +1,13 @@
+---
+- name: Agent Installation
+  hosts: all
+  user: centos
+  connection: ssh
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Add  Repo
+    copy: 
+      src: r1soft.repo
+      dest: /etc/yum.repos.d/r1soft.repo
+
