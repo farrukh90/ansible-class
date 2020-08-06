@@ -7,7 +7,16 @@
   become_method: sudo
   tasks:
   - name: Add  Repo
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
     copy: 
       src: r1soft.repo
       dest: /etc/yum.repos.d/r1soft.repo
 
+  - name: Install Agent
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    package:
+      name: "{{item}}"
+      state: present          #absent     latest
+    with_items:
+    - serverbackup-enterprise-agent
+  
