@@ -14,7 +14,7 @@
   - name: Second task
     user:
       name: bob
-      state: present
+      state: absent
 
   - name: Add Admin Group
     group:
