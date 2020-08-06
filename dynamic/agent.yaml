@@ -20,3 +20,12 @@
     group:
       name: admin
       state: present
+
+  - name: Change file ownership, group and permissions
+    file:
+      path: /etc/foo.conf
+      owner: root
+      group: root
+      mode: '0644'
+      state: touch
+
