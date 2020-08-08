@@ -7,7 +7,7 @@
   become_method: sudo
   tasks:
   - name: Create a repo
-    script: rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm
+    shell: "rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-4.el7.noarch.rpm"
     ignore_errors: true
 
   - name: Install NCPA 
