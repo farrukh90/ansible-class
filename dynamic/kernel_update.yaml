@@ -6,8 +6,19 @@
   become: yes
   become_method: sudo
   tasks:
+
+  - name: Get Kernel Version
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    debug: 
+      var:  "{{ansible_kernel}}"
+
   - name: Update kernel
     when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
     package:
       name: kernel
       state: latest
+
+  - name: Get Kernel Version
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    debug: 
+      var:  "{{ansible_kernel}}"
