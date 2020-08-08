@@ -1,0 +1,13 @@
+---
+- name: Update Kernel
+  hosts: all
+  user: centos
+  connection: ssh
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Update kernel
+    when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+    package:
+      name: kernel
+      state: latest
