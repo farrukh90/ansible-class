@@ -11,7 +11,7 @@ targets
 ```
 * ### Create another file called aws.yaml
 ```
-- hosts: 54.91.85.71
+- hosts: all
   user: ec2-user
   become: yes
   become_method: sudo 
