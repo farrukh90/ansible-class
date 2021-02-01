@@ -4,7 +4,6 @@
 ``` 
 ansible-galaxy install geerlingguy.aws-inspector
 ```
-
 * ### Create a file called hosts and add IP 
 ```
 targets
